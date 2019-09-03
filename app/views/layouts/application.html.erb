@@ -9,21 +9,16 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-   <body id = "chat">
-        <div id = "container" class="container">
-           <div id = "header" class="row">
-              <h1>Live Chat Application</h1>
-              <div class="container">
-                <%= link_to "Sign_in  ", new_user_session_path %>
-                <br>
-                <%= link_to "Sign_out", destroy_user_session_path, method: :delete %>
-              </div>
-             <div id = "content" class="col-12">
-               <%= yield -%>
-             </div>
+  <body>
+        <div class="container">
+           <div class="row">
+             <div  class="col-12">
+ 						   <%= render partial: 'shared/navigation_bar' %>
+						   <div class="my-3">
+                 <%= yield %>
+               </div>
+						 </div>
            </div>
-
-           <div id = "sidebar"></div>
         </div>
   </body>
 </html>
