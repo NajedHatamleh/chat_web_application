@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12 col-md-3">
+  <div class="col-12 col-md-3" id="room_header">
     <div class="mb-3">
       <%= link_to new_room_path, class: "btn btn-primary" do %>
         Create a room
@@ -9,7 +9,14 @@
     <% if @rooms.present? %>
       <nav class="nav flex-column">
         <% @rooms.each do |room| %>
-          <%= link_to room.name, room_path(room), class: "nav-link room-nav-link" %>
+          <div class="row delete_room">
+            <div class="col-6">
+              <%= link_to room.name, room_path(room), class: "nav-link room-nav-link" %>
+            </div>
+            <div class="col-5">
+              <%= link_to "Delete", room_path(room), method: :delete, data: { confirm: "Are You Sure" }, remote: true, class: "nav-link room-nav-link" %>
+            </div>
+          </div>
         <% end %>
       </nav>
     <% else %>

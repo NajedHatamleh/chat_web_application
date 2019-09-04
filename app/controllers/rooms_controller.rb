@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new permitted_parameters
-    debugger
+    # debugger
     if @room.save
       flash[:success] = "Room #{@room.name} wass created successfully"
       redirect_to rooms_path
@@ -28,8 +28,17 @@ class RoomsController < ApplicationController
       flash[:success] = "Room #{@room.name} has been updated successfully"
       redirect_to rooms_path
     else
-      flash[:error_messages] = "Room wasn't updated"
+      flash[:error] = "Room wasn't updated"
       render :new
+    end
+  end
+
+  def destroy
+    # debugger
+    Room.find(params[:id]).destroy
+    respond_to do |format|
+      format.html { redirect_to rooms_path }
+      format.js   { render }
     end
   end
 
