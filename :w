@@ -1,0 +1,10 @@
+// jQuery(document).ready(function($) {
+  $('.delete_room').bind('ajax:success', function() {
+    // debugger
+    $(this).hide();
+    var para = document.createElement("p");
+    var textnode = document.createTextNode("Deleted");
+    para.append(textnode);
+    $("#room_header").append(para);
+  });
+// });

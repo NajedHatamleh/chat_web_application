@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  load_and_authorize_resource :except => :create
   def show
 
   end
@@ -13,10 +14,12 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new permitted_parameters
-    # debugger
+    debugger
+    @room = Room.new(room_creation_parameters)
     if @room.save
       flash[:success] = "Room #{@room.name} wass created successfully"
+      @user_room = UserRoom.new({ user_id: current_user.id, room_id: @room.id })
+      @user_room.save
       redirect_to rooms_path
     else
       render :new
@@ -34,7 +37,6 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    # debugger
     Room.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to rooms_path }
@@ -44,7 +46,8 @@ class RoomsController < ApplicationController
 
   protected
 
-  def permitted_parameters
+  def room_creation_parameters
+    # debugger
     params.require(:room).permit(:name)
   end
 
