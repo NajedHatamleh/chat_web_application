@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
+    @user_rooms = UserRoom.all
   end
 
   def new
@@ -14,7 +15,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    debugger
+    # debugger
     @room = Room.new(room_creation_parameters)
     if @room.save
       flash[:success] = "Room #{@room.name} wass created successfully"
@@ -37,17 +38,29 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    Room.find(params[:id]).destroy
+    # debugger
+    if can? :destroy, @room
+      Room.find(params[:id]).destroy
+      UserRoom.where(user_id: current_user.id, room_id: params[:id]).map(&:destroy)
+    end
     respond_to do |format|
       format.html { redirect_to rooms_path }
       format.js   { render }
     end
   end
 
+  def find_room_creator(room)
+    debugger
+    creator = User.find(UserRoom.where(room_id: room.id).map(&:user_id)).pluck(:username, :email).flatten
+    debugger
+    "Created by User Name: '#{creator.first}'\nEmail: '#{creator.last}' \nAre You sure you want to delete '#{room.name}'?"
+  end
+
+  helper_method :find_room_creator
+
   protected
 
   def room_creation_parameters
-    # debugger
     params.require(:room).permit(:name)
   end
 
