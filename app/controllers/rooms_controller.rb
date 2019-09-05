@@ -2,7 +2,10 @@ class RoomsController < ApplicationController
   # before_action :authenticate_user!
   load_and_authorize_resource :except => :create
   def show
-
+    @room_message = UserRoom.new room: @room
+    debugger
+    @users = @room_message.room
+    debugger
   end
 
   def index
@@ -15,10 +18,9 @@ class RoomsController < ApplicationController
   end
 
   def create
-    # debugger
     @room = Room.new(room_creation_parameters)
     if @room.save
-      flash[:success] = "Room #{@room.name} wass created successfully"
+      # flash[:success] = "Room #{@room.name} wass created successfully"
       @user_room = UserRoom.new({ user_id: current_user.id, room_id: @room.id })
       @user_room.save
       redirect_to rooms_path
@@ -38,7 +40,6 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    # debugger
     if can? :destroy, @room
       Room.find(params[:id]).destroy
       UserRoom.where(user_id: current_user.id, room_id: params[:id]).map(&:destroy)
@@ -50,9 +51,7 @@ class RoomsController < ApplicationController
   end
 
   def find_room_creator(room)
-    debugger
     creator = User.find(UserRoom.where(room_id: room.id).map(&:user_id)).pluck(:username, :email).flatten
-    debugger
     "Created by User Name: '#{creator.first}'\nEmail: '#{creator.last}' \nAre You sure you want to delete '#{room.name}'?"
   end
 
