@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
-  # before_action :authenticate_user!
   load_and_authorize_resource :except => :create
+
   def show
     @room_message = UserRoom.new room: @room
     debugger
@@ -20,7 +20,6 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_creation_parameters)
     if @room.save
-      # flash[:success] = "Room #{@room.name} wass created successfully"
       @user_room = UserRoom.new({ user_id: current_user.id, room_id: @room.id })
       @user_room.save
       redirect_to rooms_path
