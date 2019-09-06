@@ -2,10 +2,8 @@ class RoomsController < ApplicationController
   load_and_authorize_resource :except => :create
 
   def show
-    @room_message = UserRoom.new room: @room
-    debugger
-    @users = @room_message.room
-    debugger
+    @room_message = RoomMessage.new room: @room
+    @room_messages = @room.room_messages.includes(:user)
   end
 
   def index
