@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
   def destroy
     if can? :destroy, @room
       Room.find(params[:id]).destroy
-      UserRoom.where(user_id: current_user.id, room_id: params[:id]).map(&:destroy)
+      RoomMessage.where(room_id: params[:id]).map(&:destroy)
     end
     respond_to do |format|
       format.html { redirect_to rooms_path }
