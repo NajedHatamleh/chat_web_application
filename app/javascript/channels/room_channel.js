@@ -1,10 +1,15 @@
 import consumer from "./consumer"
+// var id = document.getElementById('room_message_room_id').value
+// debugger
 
-consumer.subscriptions.create("RoomChannel", {
+document.addEventListener('DOMContentLoaded', function(){
+       window.room_id = document.getElementById('room_message_room_id').value;
+
+consumer.subscriptions.create({ channel: "RoomChannel", room: window.room_id }, {
   connected() {
     // Called when the subscription is ready for use on the server
 	$('[data-channel-subscribe="room"]').each(function(index, element) {
-    // debugger
+    debugger
     window.$element = $(element)
         // room_id = $element.data('room-id')
     window.messageTemplate = $('[data-role="message-template"]');
@@ -25,3 +30,4 @@ consumer.subscriptions.create("RoomChannel", {
         $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000);
   }
 });
+}, false);
