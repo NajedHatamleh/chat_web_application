@@ -1,0 +1,31 @@
+import consumer from "./consumer"
+
+document.getElementById("connect").addEventListener('click', function(){
+  window.room_id = document.getElementById('room_message_room_id').value;
+
+  consumer.subscriptions.create({ channel: "RoomChannel", room: window.room_id }, {
+    connected() {
+      // Called when the subscription is ready for use on the server
+	    $('[data-channel-subscribe="room"]').each(function(index, element) {
+      window.$element = $(element)
+      window.messageTemplate = $('[data-role="message-template"]');
+
+      $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000) })
+    },
+
+    disconnected() {
+      // Called when the subscription has been terminated by the server
+    },
+
+    received(data) {
+      // Called when there's incoming data on the websocket for this channel
+		  var content = messageTemplate.children().clone(true, true);
+          content.find('[data-role="message-text"]').text(data.message);
+          content.find('[data-role="message-date"]').text(data.updated_at);
+          // temp =
+          content.find('[data-role="user-name"]').text(data.username + ": ")
+          $element.append(content);
+          $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000);
+     }
+  });
+}, false);

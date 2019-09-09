@@ -46,8 +46,6 @@
           <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
         </div>
       </div>
-      <% debugger %>
-
       <%= form.input :room_id, as: :hidden %>
     <% end %>
   </div>
@@ -56,8 +54,8 @@
 <div class="d-none" id="template" data-role="message-template">
   <div class="chat-message-container">
     <div class="row no-gutters">
-      <div class="col-auto text-center">
-        <%= current_user.username + ": "%>
+    <div class="col-auto text-center">
+      <p data-role="user-name"> </p>
       </div>
       <div class="col">
         <div class="message-content">

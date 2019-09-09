@@ -2,6 +2,8 @@ class RoomsController < ApplicationController
   load_and_authorize_resource :except => :create
 
   def show
+    @rooms = Room.all
+    @user_rooms = UserRoom.all
     @room_message = RoomMessage.new room: @room
     @room_messages = @room.room_messages.includes(:user)
   end
@@ -27,7 +29,7 @@ class RoomsController < ApplicationController
   end
 
   def update
-    if @room.update_attributes(permitted_parameters)
+    if @room.update_attributes(room_creation_parameters)
       flash[:success] = "Room #{@room.name} has been updated successfully"
       redirect_to rooms_path
     else
@@ -39,7 +41,7 @@ class RoomsController < ApplicationController
   def destroy
     if can? :destroy, @room
       Room.find(params[:id]).destroy
-      RoomMessage.where(room_id: params[:id]).map(&:destroy)
+      UserRoom.where(room_id: params[:id]).map(&:destroy)
     end
     respond_to do |format|
       format.html { redirect_to rooms_path }

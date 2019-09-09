@@ -3,3 +3,6 @@ $(function() {
     $(this).find('input[type="text"]').val('');
   });
 });
+
+// $(function() {
+//  if ( $('#username-id').html().length != 0)

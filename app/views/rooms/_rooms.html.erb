@@ -1,7 +1,7 @@
 <div class="mb-3">
       <%= link_to "Create a Room", new_room_path, class: "btn btn-primary" %>
 </div>
-
+<% debugger %>
     <% if @rooms.present? && @user_rooms.present? %>
       <nav class="nav flex-column">
         <% @rooms.each do |room| %>
@@ -12,13 +12,13 @@
               </div>
               <div class="row" %>
                 <% if current_user.admin? || current_user.user_rooms.where(room_id: room.id).present? %>
-                  <div class="col-5">
+                  <div class="col-5" id="connect">
                     <% temp_message = find_room_creator(room)%>
                     <%= link_to "Delete", room_path(room), method: :delete, data: { confirm: "#{temp_message}" },
                       remote: true, class:"badge badge-danger" %>
                   </div>
                   <div class="col-5">
-                    <%= link_to "Edit", room_path(room), class: "badge badge-info" %>
+                    <%= link_to "Edit", edit_room_path(room), class: "badge badge-info" %>
                   </div>
                 <% end %>
               </div>

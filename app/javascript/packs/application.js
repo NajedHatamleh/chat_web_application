@@ -12,6 +12,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap"
+import "../../assets/javascripts/room"
 // import "../stylesheets/application"
 
 // document.addEventListener("turbolinks:load", () => {
