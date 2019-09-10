@@ -1,4 +1,4 @@
 <%= simple_form_for @room do |form| %>
-  <%= form.input :name %>
+  <%= form.input :name, required: true, minLength: 1 %>
   <%= form.submit "Save", class: 'btn btn-success' %>
 <% end %>

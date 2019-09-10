@@ -29,15 +29,15 @@ class RoomsController < ApplicationController
   end
 
   def update
-    if @room.update_attributes(room_creation_parameters)
-      flash[:success] = "Room #{@room.name} has been updated successfully"
+    if @room.update(room_creation_parameters)
       redirect_to rooms_path
     else
-      flash[:error] = "Room wasn't updated"
       render :new
     end
   end
 
+  # I have there tables that must be destroyed when deleting a room and in the method you see there are only two deletle statments,
+  # but because there is an Assosiation between two i only delete one and the other automatically will be deleted
   def destroy
     if can? :destroy, @room
       Room.find(params[:id]).destroy
@@ -49,6 +49,7 @@ class RoomsController < ApplicationController
     end
   end
 
+  # Helper method for finding the creator of the room.
   def find_room_creator(room)
     creator = User.find(UserRoom.where(room_id: room.id).map(&:user_id)).pluck(:username, :email).flatten
     "Created by User Name: '#{creator.first}'\nEmail: '#{creator.last}' \nAre You sure you want to delete '#{room.name}'?"
