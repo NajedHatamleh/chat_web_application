@@ -13,7 +13,7 @@
                 <% if current_user.admin? || current_user.user_rooms.where(room_id: room.id).present? %>
                   <div class="col-5">
                     <% temp_message = find_room_creator(room)%>
-                    <%= link_to "Delete", room_path(room), method: :delete, data: { confirm: "#{temp_message}" },
+                    <%= link_to "Delete", room_path(room, room_scope: params[:action]), method: :delete, data: { confirm: "#{temp_message}" },
                       remote: true, class:"badge badge-danger" %>
                   </div>
                   <div class="col-5">

@@ -45,7 +45,7 @@ class RoomsController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to rooms_path }
-      format.js   { render }
+      format.js   { render } unless params[:room_scope] == "show"
     end
   end
 
