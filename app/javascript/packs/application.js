@@ -12,6 +12,7 @@ require("channels")
 
 import "bootstrap"
 import "../../assets/javascripts/room"
+import "../../assets/javascripts/fetch_more"
 
 
 

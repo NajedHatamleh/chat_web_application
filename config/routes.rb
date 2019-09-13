@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'rooms#index'
   resources :room_messages
   resources :rooms
+  get 'rooms/:id/fetch', to: 'rooms#fetch_more', as: :fetch_more
 
   mount ActionCable.server => '/cable'
 

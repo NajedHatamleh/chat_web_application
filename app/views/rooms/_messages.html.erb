@@ -1,0 +1,23 @@
+      <% @room_messages.reverse_each do |room_message| %>
+        <div class="chat-message-container">
+          <div class="messages_ids row no-gutters" value="<%= room_message.id %>">
+            <div class="col-auto text-center">
+              <%= room_message.user.username + ": "%>
+            </div>
+
+            <div class="col">
+              <div class="message-content">
+                <p class="mb-1">
+                  <%= room_message.message %>
+                </p>
+
+                <div class="text-right">
+                  <small>
+                    <%= room_message.created_at %>
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
