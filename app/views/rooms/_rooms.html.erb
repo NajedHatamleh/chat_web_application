@@ -1,25 +1,33 @@
-<div class="mb-3">
-      <%= link_to "Create a Room", new_room_path, class: "btn btn-primary" %>
+<div class="mb-3 nav flex-column">
+   <%= link_to "Create a Room", new_room_path, class: "btn btn-primary" %>
 </div>
     <% if @rooms.present? && @user_rooms.present? %>
       <nav class="nav flex-column">
         <% @rooms.each do |room| %>
           <div class="row delete_room">
             <% if can? :read, room %>
-              <div id="connect" class="col-6">
-                <%= link_to room.name, room_path(room), class: "nav-link room-nav-link" %>
-              </div>
-              <div class="row" %>
-                <% if current_user.admin? || current_user.user_rooms.where(room_id: room.id).present? %>
-                  <div class="col-5">
-                    <% temp_message = find_room_creator(room)%>
-                    <%= link_to "Delete", room_path(room, room_scope: params[:action]), method: :delete, data: { confirm: "#{temp_message}" },
-                      remote: true, class:"badge badge-danger" %>
-                  </div>
-                  <div class="col-5">
-                    <%= link_to "Edit", edit_room_path(room), class: "badge badge-info" %>
-                  </div>
-                <% end %>
+              <div id="connect" class="col-10">
+                <div class="row room-nav-link">
+                  <%= link_to room.name, room_path(room), class: "nav-link col-6" %>
+                  <% creator = find_room_creator(room)%>
+                  <% if current_user.admin? || current_user.user_rooms.where(room_id: room.id).present? %>
+                    <div class="dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <li><%= link_to "Delete", room_path(room), method: :delete,
+                          data: { confirm: "" "Created by User Name: '#{creator[:username]}'\nEmail: '#{creator[:email]}'
+                                  \nAre You sure you want to delete '#{room.name}'?" },
+                          remote: true, class:"dropdown-item" %></li>
+
+                        <li><%= link_to "Edit", edit_room_path(room), class: "dropdown-item" %></li>
+                       </div>
+                    </div>
+                  <% end %>
+                  <p class="col-2">
+                  <b><%=  creator[:username] %></b> </p>
+                </div>
               </div>
             <% end %>
           </div>
@@ -30,4 +38,3 @@
         The are no rooms
       </div>
     <% end %>
-

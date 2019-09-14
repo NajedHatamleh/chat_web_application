@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+# require 'simplecov'
+# SimpleCov.start 'rails'
+# puts "required simplecov"
+
 begin
   load File.expand_path('../spring', __FILE__)
 rescue LoadError => e

@@ -66,8 +66,7 @@ class RoomsController < ApplicationController
 
   # Helper method for finding the creator of the room.
   def find_room_creator(room)
-    creator = User.find(UserRoom.where(room_id: room.id).map(&:user_id)).pluck(:username, :email).flatten
-    "Created by User Name: '#{creator.first}'\nEmail: '#{creator.last}' \nAre You sure you want to delete '#{room.name}'?"
+    User.find(UserRoom.where(room_id: room.id).map(&:user_id)).pluck(:username, :email).map {|username, email| {username: username, email: email}}[0]
   end
 
   helper_method :find_room_creator

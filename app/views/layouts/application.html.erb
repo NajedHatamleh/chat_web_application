@@ -11,13 +11,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%= render partial: 'shared/navigation_bar' %>
         <div class="container">
            <div class="row">
-             <div  class="col-12">
- 						   <%= render partial: 'shared/navigation_bar' %>
-						   <div class="my-4">
+						   <div class="col-12">
                  <%= yield %>
-               </div>
 						 </div>
            </div>
         </div>
