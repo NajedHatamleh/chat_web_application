@@ -14,14 +14,14 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-09-14T13:45:53+03:00">2019-09-14T13:45:53+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-09-14T21:18:36+03:00">2019-09-14T21:18:36+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">14.02%</span></span>
+    (<span class="covered_percent"><span class="red">13.86%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>23</b> files in total.
-    <b>164</b> relevant lines. 
+    <b>166</b> relevant lines. 
     <span class="green"><b>23</b> lines covered</span> and
-    <span class="red"><b>141</b> lines missed </span>
+    <span class="red"><b>143</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -83,10 +83,10 @@
       <tr>
         <td class="strong"><a href="#3d6b83c9887b2e436c6ca3d698232c956b9a92ac" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>10</td>
-        <td>7</td>
+        <td>14</td>
+        <td>11</td>
         <td>0</td>
-        <td>7</td>
+        <td>11</td>
         <td>0.0</td>
       </tr>
       
@@ -104,9 +104,9 @@
         <td class="strong"><a href="#c55136f44c7c1b92d70d217d142621addc2540e4" class="src_link" title="app/controllers/rooms_controller.rb">app/controllers/rooms_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
         <td>81</td>
-        <td>64</td>
+        <td>62</td>
         <td>0</td>
-        <td>64</td>
+        <td>62</td>
         <td>0.0</td>
       </tr>
       
@@ -300,9 +300,9 @@
   <a name="Controllers"></a>
   <div>
     <b>9</b> files in total.
-    <b>96</b> relevant lines. 
+    <b>98</b> relevant lines. 
     <span class="green"><b>0</b> lines covered</span> and
-    <span class="red"><b>96</b> lines missed </span>
+    <span class="red"><b>98</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -321,10 +321,10 @@
       <tr>
         <td class="strong"><a href="#3d6b83c9887b2e436c6ca3d698232c956b9a92ac" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>10</td>
-        <td>7</td>
+        <td>14</td>
+        <td>11</td>
         <td>0</td>
-        <td>7</td>
+        <td>11</td>
         <td>0.0</td>
       </tr>
       
@@ -342,9 +342,9 @@
         <td class="strong"><a href="#c55136f44c7c1b92d70d217d142621addc2540e4" class="src_link" title="app/controllers/rooms_controller.rb">app/controllers/rooms_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
         <td>81</td>
-        <td>64</td>
+        <td>62</td>
         <td>0</td>
-        <td>64</td>
+        <td>62</td>
         <td>0.0</td>
       </tr>
       
@@ -1051,9 +1051,9 @@
     <h3>app/controllers/application_controller.rb</h3>
     <h4><span class="red">0.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
+      <b>11</b> relevant lines. 
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <span class="red"><b>11</b> lines missed.</span>
     </div>
   </div>
   
@@ -1084,28 +1084,28 @@
           <code class="ruby">  before_action :configure_permitted_parameters, if: :devise_controller?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="missed" data-hits="0" data-linenumber="5">
+          
+          
+          <code class="ruby">  before_action :configure_account_update_params, if: :devise_controller?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
+        <li class="missed" data-hits="0" data-linenumber="7">
           
           
           <code class="ruby">  def configure_permitted_parameters</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="7">
+        <li class="missed" data-hits="0" data-linenumber="8">
           
           
           <code class="ruby">    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :username])</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
-          <code class="ruby">    # debugger</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="9">
@@ -1114,7 +1114,31 @@
           <code class="ruby">  end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="11">
+          
+          
+          <code class="ruby">  def configure_account_update_params</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute, :username])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="13">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="14">
           
           
           <code class="ruby">end</code>
@@ -1245,9 +1269,9 @@
     <h3>app/controllers/rooms_controller.rb</h3>
     <h4><span class="red">0.0 %</span> covered</h4>
     <div>
-      <b>64</b> relevant lines. 
+      <b>62</b> relevant lines. 
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>64</b> lines missed.</span>
+      <span class="red"><b>62</b> lines missed.</span>
     </div>
   </div>
   
@@ -1278,40 +1302,40 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
-          <code class="ruby">  $limit</code>
+          <code class="ruby">  #They are for pagination purposes</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="6">
           
           
+          <code class="ruby">  $limit</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="7">
+          
+          
           <code class="ruby">  $offset_counter</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
+        <li class="missed" data-hits="0" data-linenumber="9">
           
           
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
-          
-          
-          <code class="ruby">    $limit = 5</code>
-        </li>
-      
         <li class="missed" data-hits="0" data-linenumber="10">
           
           
-          <code class="ruby">    $offset_counter = 5</code>
+          <code class="ruby">    $limit = 5</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="11">
@@ -1608,70 +1632,70 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">  def fetch_more</code>
+          <code class="ruby">  #I made the pagination manuely by getting to the top of the chat box javascript function will call fetch_more</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">    $limit += 5</code>
+          <code class="ruby">  #and the method uses and keep track of the required offset dependening how much the user scrolled up unitl it reachers the oldest record</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="62">
           
           
-          <code class="ruby">    $offset_counter = ($offset_counter &gt;= 5? $offset_counter - 5: 0)</code>
+          <code class="ruby">  def fetch_more</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="missed" data-hits="0" data-linenumber="63">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    $limit += 5</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="64">
           
           
-          <code class="ruby">    @room_messages = (@room.room_messages.includes(:user).order(:id).limit($limit).offset($offset_counter)).to_a.reverse()</code>
+          <code class="ruby">    $offset_counter = ($offset_counter &gt;= 5? $offset_counter - 5: 0)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="65">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    @room_messages = (@room.room_messages.includes(:user).order(:id).limit($limit).offset($offset_counter)).to_a.reverse()</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="missed" data-hits="0" data-linenumber="66">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">  # Helper method for finding the creator of the room.</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="68">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
-          <code class="ruby">  def find_room_creator(room)</code>
+          <code class="ruby">  # Helper method for finding the creator of the room.</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="69">
           
           
-          <code class="ruby">    creator = User.find(UserRoom.where(room_id: room.id).map(&amp;:user_id)).pluck(:username, :email).flatten</code>
+          <code class="ruby">  def find_room_creator(room)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="70">
           
           
-          <code class="ruby">    &quot;Created by User Name: &#39;#{creator.first}&#39;\nEmail: &#39;#{creator.last}&#39; \nAre You sure you want to delete &#39;#{room.name}&#39;?&quot;</code>
+          <code class="ruby">    User.find(UserRoom.where(room_id: room.id).map(&amp;:user_id)).pluck(:username, :email).map {|username, email| {username: username, email: email}}[0]</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="71">

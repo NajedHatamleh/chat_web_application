@@ -2,12 +2,12 @@ class RoomsController < ApplicationController
   load_and_authorize_resource :except => :create
   skip_authorize_resource :only => :fetch_more
 
+  #They are for pagination purposes
   $limit
   $offset_counter
 
   def show
     $limit = 5
-    $offset_counter = 5
     @rooms = Room.all
     @user_rooms = UserRoom.all
     @room_message = RoomMessage.new room: @room
@@ -57,10 +57,11 @@ class RoomsController < ApplicationController
     end
   end
 
+  #I made the pagination manuely by getting to the top of the chat box javascript function will call fetch_more
+  #and the method uses and keep track of the required offset dependening how much the user scrolled up unitl it reachers the oldest record
   def fetch_more
     $limit += 5
     $offset_counter = ($offset_counter >= 5? $offset_counter - 5: 0)
-
     @room_messages = (@room.room_messages.includes(:user).order(:id).limit($limit).offset($offset_counter)).to_a.reverse()
   end
 
