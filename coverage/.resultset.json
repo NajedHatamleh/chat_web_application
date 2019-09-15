@@ -50,12 +50,12 @@
         null,
         null,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -129,6 +129,16 @@
         null,
         null
       ],
+      "/home/nejed/Desktop/chat_web_application/app/models/room_message.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/home/nejed/Desktop/chat_web_application/app/models/room.rb": [
         1,
         1,
@@ -177,36 +187,17 @@
         null,
         null,
         null,
-        1,
-        1,
-        1,
+        3,
+        3,
+        3,
         null,
-        1,
-        1,
+        3,
+        3,
         null,
         null,
         null,
         null,
         null
-      ],
-      "/home/nejed/Desktop/chat_web_application/app/models/room_message.rb": [
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/nejed/Desktop/chat_web_application/app/jobs/application_job.rb": [
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0
       ],
       "/home/nejed/Desktop/chat_web_application/app/controllers/users/unlocks_controller.rb": [
         null,
@@ -451,12 +442,6 @@
         0,
         0
       ],
-      "/home/nejed/Desktop/chat_web_application/app/mailers/application_mailer.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
       "/home/nejed/Desktop/chat_web_application/app/channels/application_cable/channel.rb": [
         0,
         0,
@@ -498,6 +483,6 @@
         0
       ]
     },
-    "timestamp": 1568497124
+    "timestamp": 1568588895
   }
 }

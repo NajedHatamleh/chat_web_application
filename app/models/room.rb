@@ -3,5 +3,5 @@ class Room < ApplicationRecord
   has_many :user_rooms
   has_many :users, through: :user_rooms
 
-  validates :name, length: { in: 1.. 255, allow_nil: false }
+  validates :name, length: { in: 1.. 12, allow_nil: false }
 end

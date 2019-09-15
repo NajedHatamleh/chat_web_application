@@ -10,8 +10,8 @@
         <% @rooms.each do |room| %>
           <div class="row delete_room">
             <% if can? :read, room %>
-              <div id="connect" class="col-11">
-                <div class="row room-nav-link">
+              <!-- <div id="connect" class="col&#45;11"> -->
+                <div class="row room-nav-link col-12">
                   <%= link_to room.name, room_path(room), class: "nav-link col-6" %>
                   <% creator = find_room_creator(room)%>
                   <div class="col-2">
@@ -34,7 +34,7 @@
                   <p class="col-2">
                   <b><%=  creator[:username] %></b> </p>
                 </div>
-              </div>
+              <!-- </div> -->
             <% end %>
           </div>
         <% end %>

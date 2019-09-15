@@ -17,4 +17,9 @@ RSpec.describe Room, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it "is not vaild with name more than 12 characters" do
+    subject.name = "nejeh awekgn asgs"
+    expect(subject).to_not be_valid
+  end
+
 end

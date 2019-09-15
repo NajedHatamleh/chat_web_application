@@ -7,9 +7,9 @@ describe "User" do
     let(:user){ nil }
 
     context "when is an Admin account" do
-      let(:user){ FactoryBot.build(:user) }
+      let(:user){ FactoryBot.build(:user, admin: true) }
 
-      it { is_expected.to be_able_to(:manage, Room.new) }
+      it { is_expected.to be_able_to(:manage, :all) }
     end
   end
 end
