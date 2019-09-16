@@ -59,8 +59,8 @@
         null,
         null,
         1,
-        1,
-        1,
+        2,
+        2,
         1,
         1,
         1,
@@ -108,7 +108,7 @@
         1,
         null,
         1,
-        1,
+        2,
         null,
         null,
         null
@@ -129,12 +129,28 @@
         null,
         null
       ],
+      "/home/nejed/Desktop/chat_web_application/app/models/room_message.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/home/nejed/Desktop/chat_web_application/app/models/room.rb": [
         1,
         1,
         1,
         1,
         null,
+        1,
+        null
+      ],
+      "/home/nejed/Desktop/chat_web_application/app/models/user_room.rb": [
+        1,
+        1,
         1,
         null
       ],
@@ -171,31 +187,15 @@
         null,
         null,
         null,
-        4,
-        4,
-        4,
+        5,
+        5,
+        5,
         null,
-        4,
-        4,
-        null,
-        null,
+        5,
+        5,
         null,
         null,
-        null
-      ],
-      "/home/nejed/Desktop/chat_web_application/app/models/user_room.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/home/nejed/Desktop/chat_web_application/app/models/room_message.rb": [
-        1,
-        1,
-        1,
         null,
-        1,
-        0,
         null,
         null
       ],
@@ -258,6 +258,6 @@
         0
       ]
     },
-    "timestamp": 1568624266
+    "timestamp": 1568628402
   }
 }

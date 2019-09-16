@@ -33,6 +33,11 @@ RSpec.describe RoomsController, type: :controller do
 		  room_params = { room: {name: room.name} }
       expect { post :create, params: room_params }.to change(Room, :count).by(1)
     end
+    it 'dosent create a Room' do
+      room = FactoryBot.create(:room, name: "text1")
+      room_params = { room: {name: room.name} }
+      expect { post :create, params: room_params }.to raise_error()
+    end
   end
 
   context 'DELETE #destroy' do
