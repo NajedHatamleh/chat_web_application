@@ -12,8 +12,9 @@ RSpec.describe RoomsController, type: :controller do
   end
 
   context 'GET #show' do
-    params = {id: 1}
+		# let(:room) { FactoryBot.build(:room)}
     it 'returns successful found response' do
+    	params = {id: 25}
       get :show, params: params
       assert_response :success
     end
@@ -28,17 +29,17 @@ RSpec.describe RoomsController, type: :controller do
 
   context 'GET #create' do
     it 'creates Room' do
-      room_params = FactoryBot.create(:room, name: "new")
-      get :room_creation_parameters, params: room_params
-      room = response
-      expect { post :create, :room => room }.to change(Room, :count).by(1)
+      room = FactoryBot.build(:room, name: "temp")
+		  room_params = { room: {name: room.name} }
+      expect { post :create, params: room_params }.to change(Room, :count).by(1)
     end
   end
 
   context 'DELETE #destroy' do
     it 'Deletes Room' do
-      room = FactoryBot.build(:room, name: "temp")
-      expect { delete :destroy, :room => room}.to change(Room, :count).by(-1)
+      room = FactoryBot.create(:room, name: "temp1")
+			params = {id: room.id}
+      expect { delete :destroy, params: params}.to change(Room, :count).by(-1)
     end
   end
 
