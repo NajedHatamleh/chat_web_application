@@ -31,6 +31,8 @@ class RoomsController < ApplicationController
       @user_room = UserRoom.new({ user_id: current_user.id, room_id: @room.id })
       @user_room.save
       redirect_to rooms_path
+      template = render_to_string partial: 'room', locals: { room: @room }
+      ActionCable.server.broadcast("rooms", { id: @room.id, action: "create", name: @room.name, html: template})
     else
       render :new
     end
@@ -48,13 +50,14 @@ class RoomsController < ApplicationController
   # but because there is an Assosiation between two i only delete one and the other automatically will be deleted
   def destroy
     if can? :destroy, @room
+      ActionCable.server.broadcast("rooms", { id: @room.id, action: "destroy" })
       Room.find(params[:id]).destroy
       UserRoom.where(room_id: params[:id]).map(&:destroy)
     end
-    respond_to do |format|
-      format.html { redirect_to rooms_path }
-      format.js   { render } unless params[:room_scope] == "show"
-    end
+    # respond_to do |format|
+      # format.html { redirect_to rooms_path }
+      # format.js   { render } unless params[:room_scope] == "show"
+    # end
   end
 
   #I made the pagination manuely by getting to the top of the chat box javascript function will call fetch_more

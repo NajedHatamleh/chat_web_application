@@ -1,0 +1,30 @@
+import consumer from "./consumer"
+$(document).on('turbolinks:load', function() {
+  consumer.subscriptions.create("RoomsChannel", {
+    connected() {
+      // Called when the subscription is ready for use on the server
+    },
+
+    disconnected() {
+      // Called when the subscription has been terminated by the server
+    },
+
+    received(data) {
+      var url = window.location.href
+      if(data.action === 'destroy') {
+         $(roomId(data.id)).hide(); //if the user are currently in index Ajax call will be renderd
+         url = (url.substring(url.lastIndexOf('/') + 1) == undefined)? "" : url.substring(url.lastIndexOf('/') + 1)
+         if(url == "" + data.id) // these two lines gets the current url and if the user was in the room beging deleted by the owner
+                                 // it dosens't render it redirects to index
+
+           window.location.replace("http://localhost:3000/rooms");
+      }
+      else {
+        $('.contains').append(data.html) //html here is the renderd room but as string
+      }
+    }
+  });
+  var roomId = function(id) {
+    return '.' + id
+  }
+});

@@ -1,0 +1,31 @@
+<% if room.present?%>
+  <div class="row delete_room <%= room.id %>">
+     <div class="row room-nav-link col-12">
+        <%= link_to room.name, room_path(room), class: "nav-link col-6"%>
+          <% creator = find_room_creator(room)%>
+          <div class="col-2">
+            <% if current_user.admin? %>
+              <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <li><%= link_to "Delete", room_path(room), method: :delete,
+                    data: { confirm: "" "Created by User Name: '#{creator[:username]}'\nEmail: '#{creator[:email]}'
+                            \nAre You sure you want to delete '#{room.name}'?" },
+                    remote: true, class:"dropdown-item" %></li>
+
+                  <li><%= link_to "Edit", edit_room_path(room), class: "dropdown-item" %></li>
+                 </div>
+              </div>
+            <% end %>
+          </div>
+          <p class="col-2">
+          <b><%=  creator[:username] %></b> </p>
+     </div>
+   </div>
+<% else %>
+  <div class="text-muted">
+    The are no rooms
+  </div>
+<% end %>
