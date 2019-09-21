@@ -4,15 +4,18 @@
 // that code so it'll be compiled.
 // require("bootstrap/dist/js/bootstrap")
 
+require("../../../node_modules/bootstrap/dist/js/bootstrap")
 require("jquery")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import "bootstrap"
 import "../../assets/javascripts/room"
 import "../../assets/javascripts/fetch_more"
+import "packs/grayscale.js"
+
+
 
 
 

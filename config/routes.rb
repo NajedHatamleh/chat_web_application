@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'rooms#index'
+  root 'homepage#index'
   resources :room_messages
   resources :rooms
   get 'rooms/:id/fetch', to: 'rooms#fetch_more', as: :fetch_more

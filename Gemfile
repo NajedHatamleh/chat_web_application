@@ -43,6 +43,8 @@ gem 'cancancan'
 
 gem 'redis'
 
+gem "font-awesome-rails"
+
 group :development, :test do
 	gem 'rspec-core', git: 'https://github.com/rspec/rspec-core'
   gem 'rspec-expectations', git: 'https://github.com/rspec/rspec-expectations'
