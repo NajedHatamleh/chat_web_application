@@ -11,18 +11,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   	<!-- Custom fonts for this template -->
-  	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  	<!-- <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"> -->
+  	<!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> -->
 
 
   </head>
   <body>
-    <%= render partial: 'shared/navigation_bar' %>
+    <div class='container'>
+      <div class='row'>
+        <%= render partial: 'shared/navigation_bar' %>
+      </div>
+    </div>
     <%= yield %>
-		<footer class="bg-black small text-center text-white-50">
-			<div class="container">
+		<footer class="bg-black big text-center text-white">
 				Copyright &copy; ZenHR Task
-			</div>
 		</footer>
 	</body>
 </html>

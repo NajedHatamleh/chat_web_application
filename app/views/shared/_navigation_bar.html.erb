@@ -20,15 +20,13 @@
           </li>
 					<li class="nav-item">
 						<% if current_user %>
-    					<div class="dropdown">
-      					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      					<a class="nav-link" href="#" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
         					<%= current_user.username %>
       					</a>
       					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           				<li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
           				<li><%= link_to 'Settings', edit_user_registration_path, class: 'dropdown-item' %></li>
       					</div>
-    					</div>
   					<% end %>
 					</li>
         </ul>
