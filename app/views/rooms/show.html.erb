@@ -1,49 +1,52 @@
-<h1>
-		<%= "Room name: " + @room.name %>
-</h1>
+<br><br><br><br><br><br>
+<div class='container'>
+  <h1>
+      <%= "Room name: " + @room.name %>
+  </h1>
 
-<div class="row">
-  <div class="col-12 col-md-3">
-    <%= render partial: 'rooms' %>
-  </div>
-
-  <div class="col">
-    <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>" data-url="<%= fetch_more_path %>" >
-      <%= render partial: 'messages' %>
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <%= render partial: 'rooms' %>
     </div>
 
-    <%= simple_form_for @room_message, remote: true do |form| %>
-      <div class="input-group mb-3">
-        <%= form.input :message, as: :string,
-                                 wrapper: false,
-                                 label: false,
-                                 input_html: {
-                                   class: 'chat-input'
-                                 } %>
-        <div class="input-group-append">
-          <%= form.submit "Send", class: 'btn btn-primary chat-input', remote: true %>
-        </div>
-       </div>
-      <%= form.input :room_id, as: :hidden %>
-    <% end %>
-    <div>
-      <%= link_to 'Back', rooms_path, class: "btn btn-warning btn-lg btn-block" %>
-    </div>
-  </div>
-</div>
-
-<div class="d-none" id="template" data-role="message-template">
-  <div class="chat-message-container">
-    <div class="row no-gutters">
-    <div class="col-auto text-center">
-      <p data-role="user-name"> </p>
+    <div class="col">
+      <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>" data-url="<%= fetch_more_path %>" >
+        <%= render partial: 'messages' %>
       </div>
-      <div class="col">
-        <div class="message-content">
-          <p class="mb-1" data-role="message-text"></p>
 
-          <div class="text-right">
-            <small data-role="message-date"></small>
+      <%= simple_form_for @room_message, remote: true do |form| %>
+        <div class="input-group mb-3">
+          <%= form.input :message, as: :string,
+                                   wrapper: false,
+                                   label: false,
+                                   input_html: {
+                                     class: 'chat-input'
+                                   } %>
+          <div class="input-group-append">
+            <%= form.submit "Send", class: 'btn btn-primary chat-input', remote: true %>
+          </div>
+         </div>
+        <%= form.input :room_id, as: :hidden %>
+      <% end %>
+      <div>
+        <%= link_to 'Back', rooms_path, class: "btn btn-warning btn-lg btn-block" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-none" id="template" data-role="message-template">
+    <div class="chat-message-container">
+      <div class="row no-gutters">
+      <div class="col-auto text-center">
+        <p data-role="user-name"> </p>
+        </div>
+        <div class="col">
+          <div class="message-content">
+            <p class="mb-1" data-role="message-text"></p>
+
+            <div class="text-right">
+              <small data-role="message-date"></small>
+            </div>
           </div>
         </div>
       </div>

@@ -1,10 +1,11 @@
 <%= stylesheet_link_tag 'regestration/style', media: 'all', 'data-turbolinks-track': 'reload' %>
+<br><br><br><br><br><br><br>
 <section class="sign-in">
   <div class="container">
       <div class="signin-content">
         <div class="signin-image">
             <figure><img src=<%= image_path('signin-image') %> alt="sing in image"></figure>
-						<%= link_to "Create an Account", new_user_registration_path, class: 'signin-image-link' %>
+            <b><%= link_to "Create an Account", new_user_registration_path, class: 'signin-image-link' %></b>
         </div>
 
         <div class="signin-form">
@@ -29,11 +30,13 @@
                     <% end %>
                 </div>
                 <div class="form-group form-button">
-                    <%= f.submit "Log in", class: "btn btn-success" %>
+                    <%= f.submit "Log in", class: "form-submit" %>
                 </div>
               <% end %>
             </div>
       </div>
   </div>
 </section>
+<br>
+<br>
 
